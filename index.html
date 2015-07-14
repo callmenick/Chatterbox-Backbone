@@ -65,9 +65,8 @@
           <h3><i class="fa fa-comment" aria-hidden="true"></i> Message Feed</h3>
         </div>
 
-        <div id="messages-feed">
-          <div class="message"></div>
-        </div>
+        <div id="messages-feed"></div><!-- /message-feed -->
+
       </div><!-- /messages-view -->
       
     </div><!-- /col-md-8 -->
@@ -83,9 +82,9 @@
 
 <!-- message template -->
 <script type="text/template" id="message-template">
-  <div class="message__header"><%= username %></div>
-  <div class="message__body"><%= text %></div>
-  <div class="message__footer"><%= roomname %></div>
+  <div class="message__header"><%- username %></div>
+  <div class="message__body"><%- text %></div>
+  <div class="message__footer"><%- roomname %></div>
 </script>
 
 <!-- dependencies -->
