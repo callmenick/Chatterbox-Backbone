@@ -1,0 +1,9 @@
+{
+  "name": "chatterbox-backbone",
+  "description": "Chatterbox app built with backbone.",
+  "dependencies": {
+    "jquery": "*",
+    "underscore": "*"
+  },
+  "version": "1.0.0"
+}
