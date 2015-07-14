@@ -10,9 +10,9 @@ var app = app || {};
 app.Message = Backbone.Model.extend({
   
   defaults: {
-    "username": "username",
-    "text": "text",
-    "roomname": "roomname"
+    'username':'username',
+    'text': 'text',
+    'roomname': 'roomname'
   }
   
 });

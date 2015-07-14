@@ -9,13 +9,16 @@ var app = app || {};
 
 app.MessageView = Backbone.View.extend({
   
-  // tagName: 'div',
-  // 
-  // template: _.template($('#message-template').html()),
+  tagName: 'div',
 
-  // render: function(){
-  //   this.$el.html(this.template(this.model.attributes));
-  //   return this;
-  // }
+  className: 'message',
+  
+  template: _.template($('#message-template').html()),
+
+  render: function(){
+    this.$el.html(this.template(this.model.attributes));
+    
+    return this;
+  }
   
 });
