@@ -10,7 +10,9 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<div id="app-view">
+
+<nav id="navbar" class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -28,11 +30,7 @@
         <li><a href="#">My Friends</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chatrooms <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-          </ul>
+          <ul id="navbar__rooms" class="dropdown-menu"></ul>
         </li>
       </ul>
     </div>
@@ -43,12 +41,10 @@
   <div class="row">
     
     <div class="col-md-8">
-      <div id="messages-view">
-        <div class="page-header">
-          <h3><i class="fa fa-comment" aria-hidden="true"></i> Message Feed | <small><a href="#">Add new message?</a></small></h3>
-        </div><!-- header -->
-        <div id="messages-feed"></div><!-- /message-feed -->
-      </div><!-- /messages-view -->
+      <div class="page-header">
+        <h3><i class="fa fa-comment" aria-hidden="true"></i> Message Feed | <small><a href="#">Add new message?</a></small></h3>
+      </div><!-- header -->
+      <div id="messages-view"></div><!-- /message-feed -->
     </div><!-- /col-md-8 -->
 
     <div class="col-md-4">
@@ -56,17 +52,17 @@
         <h3><i class="fa fa-pencil"></i> Type A Message</h3>
       </div><!-- /header -->
 
-      <form action="#">
+      <form id="message-form">
         <div class="form-group">
-          <select class="form-control" name="#" id="#">
+          <select id="message-form__rooms" class="form-control" name="#" id="#">
             <option value="#">-- Add new room --</option>
           </select>
         </div>
         <div class="form-group">
-          <textarea class="form-control" rows="4"></textarea>
+          <textarea id="message-form__text" class="form-control" rows="4"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-      </form><!-- /form -->
+      </form><!-- /message-form -->
 
       <div class="page-header">
         <h3><i class="fa fa-users"></i> Current Users</h3>
@@ -75,6 +71,8 @@
 
   </div><!-- /row -->
 </div><!-- /container -->
+
+</div><!-- /app-view -->
 
 <!-- message template -->
 <script type="text/template" id="message-template">
@@ -86,6 +84,16 @@
     <span class="message__meta message__roomname">Posted in: <%- roomname %></span>
     <span class="message__meta message__time">Posted on: <%- createdAt %></span>
   </div>
+</script>
+
+<!-- rooms dropdown template -->
+<script type="text/template" id="rooms-dropdown-template">
+  <li><a href="#"><%- roomname %></a></li>
+</script>
+
+<!-- rooms select template -->
+<script type="text/template" id="rooms-select-template">
+  <option><%- roomname %></option>
 </script>
 
 <!-- dependencies -->
@@ -102,6 +110,7 @@
 <script src="js/src/collections/messages.js"></script>
 <script src="js/src/views/app.js"></script>
 <script src="js/src/views/message.js"></script>
+<script src="js/src/views/rooms.js"></script>
 <script src="js/src/routers/router.js"></script>
 <script src="js/src/app.js"></script>
 
