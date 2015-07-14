@@ -1,6 +1,8 @@
 // js/src/routers/router.js
 
-// App Router
-// ----------
-
 var app = app || {};
+
+// APP ROUTERS
+// 
+// Routing of the application
+// -----------------------------------------------------------------------------

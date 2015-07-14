@@ -2,14 +2,17 @@
 
 var app = app || {};
 
-// Message Model
-// -------------
+// MESSAGE MODEL
+// 
+// Models the data for messages
+// -----------------------------------------------------------------------------
 
 app.Message = Backbone.Model.extend({
-
-  initialize: function(message, destination){
-    this.set('message', message);
-    this.set('destination', destination);
+  
+  defaults: {
+    "username": "username",
+    "text": "text",
+    "roomname": "roomname"
   }
-
+  
 });

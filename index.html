@@ -6,6 +6,7 @@
   <title>Chatterbox Backbone</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
@@ -80,6 +81,13 @@
   </div><!-- /row -->
 </div><!-- /container -->
 
+<!-- message template -->
+<script type="text/template" id="message-template">
+  <div class="message__header"><%= username %></div>
+  <div class="message__body"><%= text %></div>
+  <div class="message__footer"><%= roomname %></div>
+</script>
+
 <!-- dependencies -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/underscore/underscore-min.js"></script>
@@ -92,7 +100,7 @@
 <!-- app -->
 <script src="js/src/models/message.js"></script>
 <script src="js/src/collections/messages.js"></script>
-<script src="js/src/views/messages.js"></script>
+<script src="js/src/views/app.js"></script>
 <script src="js/src/views/message.js"></script>
 <script src="js/src/routers/router.js"></script>
 <script src="js/src/app.js"></script>

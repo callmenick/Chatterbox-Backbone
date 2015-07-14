@@ -2,8 +2,11 @@
 
 var app = app || {};
 
+// APP
+// 
+// Kicks things off.
+// -----------------------------------------------------------------------------
+
 $(function() {
-
-  // new app.MessagesView();
-
+  new app.AppView();
 });
