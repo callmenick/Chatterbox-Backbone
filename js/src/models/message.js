@@ -7,4 +7,9 @@ var app = app || {};
 
 app.Message = Backbone.Model.extend({
 
+  initialize: function(message, destination){
+    this.set('message', message);
+    this.set('destination', destination);
+  }
+
 });
