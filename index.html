@@ -43,38 +43,34 @@
   <div class="row">
     
     <div class="col-md-8">
-      
       <div id="messages-view">
         <div class="page-header">
-          <h3><i class="fa fa-pencil"></i> Type A Message</h3>
-        </div>
-
-        <form action="#">
-          <div class="form-group">
-            <select class="form-control" name="#" id="#">
-              <option value="#">-- Add new room --</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <textarea class="form-control" rows="4"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form><!-- /form -->
-        
-        <div class="page-header">
-          <h3><i class="fa fa-comment" aria-hidden="true"></i> Message Feed</h3>
-        </div>
-
+          <h3><i class="fa fa-comment" aria-hidden="true"></i> Message Feed | <small><a href="#">Add new message?</a></small></h3>
+        </div><!-- header -->
         <div id="messages-feed"></div><!-- /message-feed -->
-
       </div><!-- /messages-view -->
-      
     </div><!-- /col-md-8 -->
 
     <div class="col-md-4">
       <div class="page-header">
+        <h3><i class="fa fa-pencil"></i> Type A Message</h3>
+      </div><!-- /header -->
+
+      <form action="#">
+        <div class="form-group">
+          <select class="form-control" name="#" id="#">
+            <option value="#">-- Add new room --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form><!-- /form -->
+
+      <div class="page-header">
         <h3><i class="fa fa-users"></i> Current Users</h3>
-      </div>
+      </div><!-- /header -->
     </div>
 
   </div><!-- /row -->
@@ -82,9 +78,14 @@
 
 <!-- message template -->
 <script type="text/template" id="message-template">
-  <div class="message__header"><%- username %></div>
-  <div class="message__body"><%- text %></div>
-  <div class="message__footer"><%- roomname %></div>
+  <div class="message__header panel-heading">
+    <h4 class="message__username panel-title"><a href="#"><%- username %></a></h4>
+  </div>
+  <div class="message__body panel-body"><%- text %></div>
+  <div class="message__footer panel-footer">
+    <span class="message__meta message__roomname">Posted in: <%- roomname %></span>
+    <span class="message__meta message__time">Posted on: <%- createdAt %></span>
+  </div>
 </script>
 
 <!-- dependencies -->

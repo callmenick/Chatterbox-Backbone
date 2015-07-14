@@ -9,7 +9,11 @@
 }
 
 .message__header {
+  
+}
 
+.message__username {
+  font-weight: 700;
 }
 
 .message__body {
@@ -17,5 +21,13 @@
 }
 
 .message__footer {
+  font-size: 12px;
+}
 
+.message__meta {
+  display: inline-block;
+}
+
+.message__roomname {
+  margin-right: 24px;
 }

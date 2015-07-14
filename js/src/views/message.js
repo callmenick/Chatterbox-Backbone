@@ -11,7 +11,7 @@ app.MessageView = Backbone.View.extend({
   
   tagName: 'div',
 
-  className: 'message',
+  className: 'message panel panel-default',
   
   template: _.template($('#message-template').html()),
 
