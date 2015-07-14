@@ -6,7 +6,7 @@ var app = app || {};
 // -------------------
 
 var MessageCollection = Backbone.Collection.extend({
-
+  model: app.Message;
 });
 
 // Create our global collection of Messages.
