@@ -20,6 +20,9 @@ app.AppView = Backbone.View.extend({
     this.listenTo(app.Messages, 'sort', this.render);
     app.Messages.fetch();
 
+    // Sort only one time for rooms
+    this.listenToOnce(app.Messages, 'sort', this.renderRooms);
+
     // Cache form variables and listen for submission
     this.messageForm = this.$el.find('#message-form');
     this.messageForm.on('submit', function(e) {
@@ -30,9 +33,8 @@ app.AppView = Backbone.View.extend({
 
   // Render view
   render: function() {
-    // Create a new rooms view, which will handle all instances of rooms showing up
-    // in the app.
-    var roomsView = new app.RoomsView();
+    // Clear the messages-view HTML
+    this.messagesView.empty();
 
     // Loop over app.Messages collection
     app.Messages.forEach(function(model) {
@@ -41,31 +43,41 @@ app.AppView = Backbone.View.extend({
         model: model
       });
 
-      // Populate allRooms
-      if (!roomsView.allRooms.hasOwnProperty(model.get('roomname'))) {
-        roomsView.allRooms[model.get('roomname')] = model.get('roomname');
-      }
-
       // Get the rendered Message view html and append it to the app view's 
       // element defined above.
       this.messagesView.append(message.render().$el);
     }.bind(this));
 
+    // Return this
+    return this;
+  },
+
+  renderRooms: function() {
+    // Create a new rooms view, which will handle all instances of rooms showing up
+    // in the app.
+    var roomsView = new app.RoomsView();
+
+    // Loop over app.Messages collection
+    app.Messages.forEach(function(model) {
+      // Populate allRooms
+      if (!roomsView.allRooms.hasOwnProperty(model.get('roomname'))) {
+        roomsView.allRooms[model.get('roomname')] = model.get('roomname');
+      }
+    }.bind(this));
+
     // Render all rooms in various places now
     roomsView.renderSelect();
     roomsView.renderDropdown();
-
-    // Return this
-    return this;
   },
 
   // Handle message form submission
   handleMessageSubmit: function() {
     var messageValue = $('#message-form__text').val();
-    var messageRoom = $();
+    var roomname = $('#message-form__rooms').val();
+    var username = getParameterByName('username');
 
-    console.log(messageValue);
-    // $('#message-form__text').val();
+    var newMessage = new app.Message(username, messageValue, roomname);
+    newMessage.save();
   }
 
 });

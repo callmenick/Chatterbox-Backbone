@@ -30,6 +30,7 @@ app.RoomsView = Backbone.View.extend({
 
   // Render the select form element
   renderSelect: function() {
+    this.roomsSelect.empty();
     _.each(this.allRooms, function(item) {
       this.roomsSelect.append(this.templateSelect({roomname: item}));
     }.bind(this));
@@ -37,6 +38,7 @@ app.RoomsView = Backbone.View.extend({
 
   // Render the navbar dropdown element
   renderDropdown: function() {
+    this.roomsDropdown.empty();
     _.each(this.allRooms, function(item) {
       this.roomsDropdown.append(this.templateDropdown({roomname: item}));
     }.bind(this));
